@@ -141,6 +141,125 @@ ul#comparison-menu {
     align-items: center;
     font-size: 18px;
 }
+
+.osnova {
+    position: relative;
+    flex: 1;
+    min-width: 320px;
+    max-width: 720px;
+    padding: 30px 40px;
+    box-sizing: border-box;
+    background: #17181a;
+    border-radius: 12px;
+}
+
+.chart-title {
+    margin: 0 0 35px;
+    color: #fff;
+    font-size: 20px;
+    text-align: center;
+}
+
+.chart-body {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.lines {
+    position: absolute;
+    top: 0;
+    bottom: 28px;
+    left: 120px;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    pointer-events: none;
+}
+
+.lines hr {
+    margin: 0;
+    border: 0;
+    border-left: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.graf {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    height: 44px;
+    font-size: 15px;
+}
+
+.name {
+    width: 120px;
+    padding-right: 18px;
+    box-sizing: border-box;
+    flex-shrink: 0;
+    color: #858585;
+    text-align: right;
+    white-space: nowrap;
+}
+
+.linia {
+    flex: 1;
+    position: relative;
+}
+
+.graf1 {
+    position: relative;
+    height: 40px;
+    background: #d1d1d1;
+    border-radius: 6px;
+}
+
+.cifra {
+    position: absolute;
+    left: calc(100% + 12px);
+    top: 50%;
+    transform: translateY(-50%);
+    color: #b1b1b1;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.axis {
+    position: relative;
+    height: 20px;
+    margin: 10px 0 0 120px;
+    color: #8e9299;
+    font-size: 13px;
+}
+
+.axis span {
+    position: absolute;
+    transform: translateX(-50%);
+}
+
+.axis-title {
+    margin-top: 25px;
+    color: #909297;
+    font-weight: bold;
+    text-align: center;
+}
+
+#burger-toggle {
+    display: none;
+}
+
+#burger {
+    display: none;
+    border: 1px solid #555;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 24px;
+    padding: 4px 12px;
+    cursor: pointer;
+    user-select: none;
+}
+
 a {
     color: #ffffff;
     text-decoration: none;
@@ -209,34 +328,59 @@ footer {
     padding: 0px 30px 0px 30px; 
 }
 
-@media (max-width: 1024px) {
-    nav {
+@media (max-width: 1600px) {
+    .hero-section {
+        gap: 5vw;
+        padding: 20px 30px 0;
+    }
+
+    h1#vs {
+        font-size: 50px;
+    }
+
+    div#main-content {
+        font-size: 17px;
+        max-width: 800px;
+    }
+
+    #main-content p,
+    .philosophies-section p {
+        max-width: 800px;
+    }
+
+    .hero-button {
         flex-wrap: wrap;
-        justify-content: center;
-        gap: 10px 20px;
     }
 
-    #page-title {
-        font-size: 28px;
+    .hero-button a {
+        padding: 16px 28px;
     }
 
-    ul#menu {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 4px 10px;
-        font-size: 16px;
+    .osnova {
+        max-width: 620px;
+        padding: 25px 30px;
     }
 
+    .philosophies-section {
+        padding: 0 30px;
+    }
+
+    .philosophy-card {
+        padding: 16px;
+    }
+
+    footer {
+        padding: 10px 30px;
+    }
+}
+
+
+@media (max-width: 1100px) {
     .hero-section {
         flex-direction: column;
         align-items: stretch;
         gap: 30px;
         padding: 20px 30px 0;
-    }
-
-    .hero-image img {
-        max-width: 500px;
-        margin: 0 auto;
     }
 
     h1#vs {
@@ -251,12 +395,13 @@ footer {
 
     .hero-button {
         flex-wrap: wrap;
-        gap: 10px;
     }
 
-    .hero-button a {
-        padding: 16px 28px;
-        margin-bottom: 0;
+    .osnova {
+        flex: none;
+        width: 100%;
+        max-width: 720px;
+        margin: 0 auto;
     }
 
     .philosophies-section {
@@ -279,18 +424,36 @@ footer {
     }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
+    nav {
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
     #page-title {
         font-size: 20px;
-        text-align: center;
+    }
+
+    #burger {
+        display: block;
     }
 
     ul#menu {
-        font-size: 14px;
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        gap: 0;
+        padding-top: 10px;
     }
 
-    nav a {
-        padding: 6px 8px;
+    #burger-toggle:checked ~ ul#menu {
+        display: flex;
+    }
+
+    ul#menu a {
+        display: block;
+        padding: 14px 10px;
+        border-top: 1px solid #333;
     }
 
     .hero-section {
@@ -299,7 +462,7 @@ footer {
     }
 
     h1#vs {
-        font-size: 30px;
+        font-size: 32px;
     }
 
     div#main-content {
@@ -309,11 +472,13 @@ footer {
     .hero-button {
         display: grid;
         grid-template-columns: 1fr 1fr;
+        gap: 10px;
     }
 
     .hero-button a {
         padding: 14px 10px;
         font-size: 15px;
+        margin-bottom: 0;
     }
 
     .philosophies-section {
@@ -334,6 +499,81 @@ footer {
         align-items: center;
         text-align: center;
         padding: 10px 16px;
+    }
+
+    .osnova {
+        padding: 20px 40px 20px 12px;
+    }
+
+    .chart-title {
+        margin-bottom: 25px;
+        font-size: 17px;
+    }
+
+    .chart-body {
+        gap: 18px;
+    }
+
+    .graf {
+        height: 36px;
+        font-size: 12px;
+    }
+
+    .graf1 {
+        height: 32px;
+    }
+
+    .name {
+        width: 80px;
+        padding-right: 10px;
+    }
+
+    .lines {
+        left: 80px;
+    }
+
+    .axis {
+        margin-left: 80px;
+        font-size: 11px;
+    }
+
+    .axis span:nth-child(even) {
+        display: none;
+    }
+
+    .axis-title {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 400px) {
+    #page-title {
+        font-size: 17px;
+    }
+
+    h1#vs {
+        font-size: 27px;
+    }
+
+    .hero-button {
+        grid-template-columns: 1fr;
+    }
+
+    .name {
+        width: 68px;
+        font-size: 12px;
+    }
+
+    .lines {
+        left: 68px;
+    }
+
+    .axis {
+        margin-left: 68px;
+    }
+
+    .osnova {
+        padding-right: 36px;
     }
 }
 
